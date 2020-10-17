@@ -14,7 +14,7 @@ export default function App() {
   return (
     <Router>
       <Header />
-      <div className="container">
+      <div className="container customNav">
         <Switch>
           <Route path="/about">
             <About />

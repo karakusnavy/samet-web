@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <nav className="navbar navbar-dark navbar-expand-lg bg-dark text-white">
-      <div className="container py-2">
+    <nav className="navbar navbar-dark navbar-expand-lg bg-blog text-white">
+      <div className="container py-2 customNav">
         <img
           src="https://avatars0.githubusercontent.com/u/29973831?s=460&u=9e4dc403b7e37f4eb1522507f3bb75486df592af&v=4"
           className="navbar-image"
         />
-        <a className="navbar-brand" href="#">
-          Samed Karakuş
-        </a>
+        <Link to="/" className="navbar-brand logoStyle">
+          Samed Karakus
+        </Link>
         <button
           type="button"
           className="navbar-toggler"
@@ -21,28 +21,28 @@ function Header() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        
+
         <div className="collapse navbar-collapse" id="navbar-samed">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/about" className="nav-link">
                 About
-              </a>
+              </Link>
             </li>{" "}
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/contact" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
+              <Link to="/source" className="nav-link">
                 Source
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
