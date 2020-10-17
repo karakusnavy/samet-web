@@ -13,8 +13,8 @@ import About from "./pages/About";
 export default function App() {
   return (
     <Router>
-      <div>
-        <Header />
+      <Header />
+      <div className="container">
         <Switch>
           <Route path="/about">
             <About />
