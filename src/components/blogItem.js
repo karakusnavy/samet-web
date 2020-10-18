@@ -1,14 +1,19 @@
 import React from "react";
+import Image from "../assets/images/test.jpg";
 
 function blogItem(props) {
   return (
     <div className="container blogItem">
-      <div className="row imageRow" style={{ height: 360 }}>
-        <img
-          src={require("../assets/images/test.jpg")}
-          style={{ width: "100%", height: "100%" }}
-        />
-      </div>
+      <div
+        className="row imageRow"
+        style={{
+          height: 360,
+          width: "100%",
+          backgroundImage: `url(${Image})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      ></div>
       <div className="container homeContainer">
         <div className="row">
           <div className="col-sm-9">

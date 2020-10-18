@@ -17,6 +17,16 @@ function Home() {
           launguage="ENG"
           date="9 September 2020"
         />
+        <BlogItem
+          title="React JS Conference Releated !"
+          launguage="ENG"
+          date="9 September 2020"
+        />
+        <BlogItem
+          title="React JS Conference Releated !"
+          launguage="ENG"
+          date="9 September 2020"
+        />
       </div>
     </div>
   );

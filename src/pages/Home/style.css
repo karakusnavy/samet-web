@@ -5,3 +5,7 @@
   color: rgb(70, 48, 235);
   cursor: pointer;
 }
+.imageRow {
+  width: 100%;
+  height: 100%;
+}
