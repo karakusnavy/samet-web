@@ -10,13 +10,14 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(240, 240, 240);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
+/* HEADER --------- */
 .navbar-image {
   height: 60px;
   border-radius: 31px;
@@ -33,7 +34,7 @@ nav ul li a:hover {
 }
 
 .bg-blog {
-  background-color: #8a28c7;
+  background-color: rgb(70, 48, 235);
 }
 
 .logoStyle {
@@ -52,3 +53,28 @@ nav ul li a:hover {
   width: 75% !important;
   margin: 0 auto;
 }
+
+.containerInContainer {
+  height: 100% !important;
+  background-color: white;
+}
+
+/* -------- HEADER FINISH */
+
+/* FOOTER ------------ */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(70, 48, 235);
+  color: white;
+  padding: 15px;
+}
+
+.footerIcons svg {
+  font-size: 34px;
+}
+
+/* -------- FOOTER FINISH */

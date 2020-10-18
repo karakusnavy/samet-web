@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Components
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Pages
 
@@ -14,7 +15,7 @@ export default function App() {
   return (
     <Router>
       <Header />
-      <div className="container customNav">
+      <div className="container containerInContainer customNav">
         <Switch>
           <Route path="/about">
             <About />
@@ -24,6 +25,7 @@ export default function App() {
           </Route>
         </Switch>
       </div>
+      <Footer />
     </Router>
   );
 }
