@@ -1,0 +1,7 @@
+.homeContainer {
+  padding: 13px;
+}
+.blogTitle:hover {
+  color: rgb(70, 48, 235);
+  cursor: pointer;
+}

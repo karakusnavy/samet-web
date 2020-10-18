@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { AiFillGithub } from "react-icons/ai";
 
 function Header() {
   return (
@@ -40,7 +41,12 @@ function Header() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/source" className="nav-link">
+              <AiFillGithub style={{ marginTop: 9, fontSize: 21 }} />
+              <Link
+                to="/source"
+                className="nav-link"
+                style={{ float: "right" }}
+              >
                 Source
               </Link>
             </li>

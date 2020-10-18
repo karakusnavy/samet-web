@@ -10,13 +10,26 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(245, 243, 243) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "FredokaOne-Regular";
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.nav-item{
+  margin-right: 12px;
+}
+
 /* HEADER --------- */
 .navbar-image {
   height: 60px;
@@ -50,7 +63,7 @@ nav ul li a:hover {
 }
 
 .customNav {
-  width: 75% !important;
+  width: 61% !important;
   margin: 0 auto;
 }
 
@@ -64,7 +77,6 @@ nav ul li a:hover {
 /* FOOTER ------------ */
 
 .footer {
-  position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
@@ -73,8 +85,26 @@ nav ul li a:hover {
   padding: 15px;
 }
 
-.footerIcons svg {
+.footerIcons a svg {
   font-size: 34px;
+  color: white;
 }
 
 /* -------- FOOTER FINISH */
+
+.globalButton {
+  padding: 21px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: rgb(70, 48, 235);
+  color: white;
+  font-family: "FredokaOne-Regular";
+  border-radius: 21px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.globalButton:hover {
+  background-color: black;
+  color: white;
+}
