@@ -10,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(245, 243, 243) !important;
+  background-color: rgb(244, 245, 243) !important;
 }
 
 h1,
@@ -63,7 +63,7 @@ nav ul li a:hover {
 }
 
 .customNav {
-  width: 61% !important;
+  width: 70% !important;
   margin: 0 auto;
 }
 

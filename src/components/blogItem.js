@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Image from "../assets/images/test.jpg";
 
 function blogItem(props) {
@@ -31,9 +32,13 @@ function blogItem(props) {
             </a>
           </div>
           <div className="col-sm-3">
-            <a style={{ float: "right" }} className="globalButton">
+            <Link
+              to={"/blog/" + props.slug}
+              style={{ float: "right" }}
+              className="globalButton"
+            >
               Read More
-            </a>
+            </Link>
           </div>
         </div>
       </div>

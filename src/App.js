@@ -10,6 +10,11 @@ import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
+import SingleBlog from "./pages/Home/singleBlog";
+
+// Test
+
+import TestPage from "./pages/TestPage";
 
 export default function App() {
   return (
@@ -19,6 +24,12 @@ export default function App() {
         <Switch>
           <Route path="/about">
             <About />
+          </Route>
+          <Route path="/test">
+            <TestPage />
+          </Route>
+          <Route path="/blog/:slug">
+            <SingleBlog />
           </Route>
           <Route path="/">
             <Home />
