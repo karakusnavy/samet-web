@@ -6,7 +6,28 @@ import firebaseConfig from "../constants/firebase";
 import currentDate from "../constants/currentDate";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+function string_to_slug(str) {
+  str = str.replace(/^\s+|\s+$/g, ""); // trim
+  str = str.toLowerCase();
+
+  // remove accents, swap ñ for n, etc
+  var from = "àáäâèéëêìíïîòóöôùúüûñç·/_,:;";
+  var to = "aaaaeeeeiiiioooouuuunc------";
+  for (var i = 0, l = from.length; i < l; i++) {
+    str = str.replace(new RegExp(from.charAt(i), "g"), to.charAt(i));
+  }
+
+  str = str
+    .replace(/[^a-z0-9 -]/g, "") // remove invalid chars
+    .replace(/\s+/g, "-") // collapse whitespace and replace by -
+    .replace(/-+/g, "-"); // collapse dashes
+
+  return str;
+}
 
 function App() {
   const [title, setTitle] = useState(null);
@@ -32,13 +53,19 @@ function App() {
       .child("samedblog/" + inputImage[0].name)
       .getDownloadURL()
       .then((ress) => {
-        firebase.database().ref().child("samedblog/blogs").push().set({
-          launguage: "ENG",
-          title: title,
-          image: ress,
-          content: content,
-          date: currentDate,
-        });
+        firebase
+          .database()
+          .ref()
+          .child("samedblog/blogs")
+          .push()
+          .set({
+            launguage: "ENG",
+            title: title,
+            image: ress,
+            content: content,
+            date: currentDate,
+            slug: string_to_slug(title),
+          });
         setProcess(false);
       });
   };

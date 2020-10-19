@@ -10,7 +10,7 @@ function blogItem(props) {
         style={{
           height: 360,
           width: "100%",
-          backgroundImage: `url(${Image})`,
+          backgroundImage: `url(${props.image})`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
         }}
