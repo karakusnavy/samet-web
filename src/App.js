@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import SingleBlog from "./pages/Home/singleBlog";
+import Works from "./pages/Works";
 
 // Test
 
@@ -27,6 +28,9 @@ export default function App() {
           </Route>
           <Route path="/test">
             <TestPage />
+          </Route>
+          <Route path="/works">
+            <Works />
           </Route>
           <Route path="/blog/:slug">
             <SingleBlog />

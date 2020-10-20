@@ -1,0 +1,17 @@
+.worksContainer {
+  padding: 10px;
+}
+
+.work table {
+  width: 100%;
+}
+.work tr {
+  transition: 0.2s;
+  border-spacing: 10px;
+}
+.work tr:hover {
+  cursor: pointer;
+  color: rgb(70, 48, 235);
+  padding-left: 10px !important;
+  transition: 0.2s;
+}
