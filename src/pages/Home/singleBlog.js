@@ -4,6 +4,8 @@ import Parse from "html-react-parser";
 import firebase from "firebase";
 import firebaseConfig from "../../constants/firebase";
 import NotFound from "../404";
+import currentDate from "../../constants/currentDate";
+import "./style.css";
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -15,7 +17,12 @@ function SingleBlog() {
   const [date, setDate] = useState(null);
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState(null);
+  const [blogid, setBlogId] = useState(null);
   const [notfound, setNotFound] = useState(false);
+  //comment
+  const [commentList, setCommentList] = useState([]);
+  const [name, setName] = useState(null);
+  const [comment, setComment] = useState(null);
 
   useEffect(() => {
     firebase
@@ -29,15 +36,42 @@ function SingleBlog() {
           return;
         } else {
           var object = snapshot.val();
+          var commentLists = [];
           for (const prop in object) {
             setContent(object[prop].content);
             setDate(object[prop].date);
             setImage(object[prop].image);
             setTitle(object[prop].title);
+            setBlogId(prop);
+            commentLists = object[prop].comments;
           }
+          const newList = [];
+          for (const prop in commentLists) {
+            newList.push({
+              date: commentLists[prop].date,
+              comment: commentLists[prop].comment,
+              name: commentLists[prop].name,
+            });
+          }
+          setCommentList(newList);
         }
       });
   }, []);
+
+  const postComment = () => {
+    firebase
+      .database()
+      .ref()
+      .child("samedblog/blogs/" + blogid + "/comments")
+      .push()
+      .set({
+        name: name,
+        comment: comment,
+        date: currentDate,
+      });
+    setName("");
+    setComment("");
+  };
 
   return notfound == true ? (
     <NotFound />
@@ -63,6 +97,49 @@ function SingleBlog() {
         }}
       ></div>
       {Parse(content)}
+      <div className="commentTitle">
+        <a>Comments</a>
+      </div>
+      <div className="commentContainer">
+        {commentList.length <= 0 ? (
+          <a>No Comment</a>
+        ) : (
+          commentList.map((item) => (
+            <div
+              style={{
+                backgroundColor: "whitesmoke",
+                padding: 5,
+                marginTop: 5,
+              }}
+            >
+              <strong>{item.name}</strong>
+              <a style={{ float: "right" }}>{item.date}</a>
+              <p>{item.comment}</p>
+            </div>
+          ))
+        )}
+        <hr />
+        Leave a Comment
+        <input
+          value={name}
+          onChange={(text) => setName(text.target.value)}
+          placeholder="Enter your name"
+          className="commentInput"
+        />
+        <textarea
+          value={comment}
+          onChange={(text) => setComment(text.target.value)}
+          placeholder="Your comment"
+          className="commentInput"
+        />
+        <br />
+        <br />
+        <a onClick={() => postComment()} className="globalButton">
+          Post Comment
+        </a>
+        <br />
+        <br />
+      </div>
     </div>
   );
 }
