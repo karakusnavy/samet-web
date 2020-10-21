@@ -18,13 +18,15 @@ function Home() {
       .once("value", (data) => {
         const List = [];
         for (const key in data.toJSON()) {
-          List.push({
-            title: data.toJSON()[key].title,
-            launguage: data.toJSON()[key].launguage,
-            date: data.toJSON()[key].date,
-            slug: data.toJSON()[key].slug,
-            image: data.toJSON()[key].image,
-          });
+          if (data.toJSON()[key].work == false) {
+            List.push({
+              title: data.toJSON()[key].title,
+              launguage: data.toJSON()[key].launguage,
+              date: data.toJSON()[key].date,
+              slug: data.toJSON()[key].slug,
+              image: data.toJSON()[key].image,
+            });
+          }
         }
         setBlogs(List);
       });

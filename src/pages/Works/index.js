@@ -1,179 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import firebase from "firebase";
+import firebaseConfig from "../../constants/firebase";
 import "./style.css";
-
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 function Works() {
+  const [works, setWorks] = useState([]);
+  useEffect(() => {
+    firebase
+      .database()
+      .ref("samedblog/blogs")
+      .once("value", (data) => {
+        const List = [];
+        for (const key in data.toJSON()) {
+          if (data.toJSON()[key].work == true) {
+            List.push({
+              title: data.toJSON()[key].title,
+              slug: data.toJSON()[key].slug,
+              projectcontent: data.toJSON()[key].projectcontent,
+            });
+          }
+        }
+        setWorks(List.reverse());
+      });
+  }, []);
   return (
     <div style={{ paddingTop: 10 }}>
       <h2>Works</h2>
       <div className="worksContainer">
         <div className="work">
           <table>
-            <tr>
-              <td>
-                <h5>Karakod - Learn a Programming</h5>
-                <a>Mobile & Desktop Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2017</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Online Sicil - Online Registration</h5>
-                <a>Web Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2018</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Beautico - Online Hairdresser Marketing</h5>
-                <a>Mobile Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2018</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Bebegim Yolda - Pregnancy Tracking Application</h5>
-                <a>Mobile Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Iftar Matik - Iftar Tracking Application for Muslims</h5>
-                <a>Mobile Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Capsmoji - Capture The Emotion Application</h5>
-                <a>Mobile & Web Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>Appodin - Rent or Buy a Mobile Application</h5>
-                <a>Web Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>BigReact - Hackathon 2020</h5>
-                <a>Web Application - Organizing</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>AdiGuzelYapi - Building and Construction</h5>
-                <a>Web Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2017</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>UgurGul - Forest Products</h5>
-                <a>Web Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2017</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <br />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>FineChat - Chat Application with Location</h5>
-                <a>Mobile Application</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2019</a>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <hr />
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h5>React Native Bluetooth Serial - Bluetooth Library</h5>
-                <a>Library</a>
-              </td>
-              <td>
-                <a style={{ float: "right" }}>2020</a>
-              </td>
-            </tr>
+            {works.map((item) => (
+              <>
+                <Link
+                  to={"/blog/" + item.slug}
+                  style={{ float: "right" }}
+                  className="globalButton"
+                >
+                  <tr>
+                    <td>
+                      <h5>{item.title}</h5>
+                      <a>{item.projectcontent}</a>
+                    </td>
+                  </tr>
+                </Link>
+                <tr>
+                  <td>
+                    <hr />
+                  </td>
+                </tr>
+              </>
+            ))}
           </table>
           <br />
-          <hr />
           <h5 style={{ textDecorationLine: "underline" }}>
             + and more.. contact me.
           </h5>

@@ -38,7 +38,7 @@ function SingleBlog() {
           var object = snapshot.val();
           var commentLists = [];
           for (const prop in object) {
-            setContent(object[prop].content);
+            setContent(object[prop].content == null ? "" : object[prop].content);
             setDate(object[prop].date);
             setImage(object[prop].image);
             setTitle(object[prop].title);

@@ -34,6 +34,8 @@ function App() {
   const [content, setContent] = useState(null);
   const [inputImage, setinputImage] = useState(null); // selecting image address with input
   const [process, setProcess] = useState(false);
+  const [checkbox, setCheckbox] = useState(false);
+  const [projectContent, setProjectContent] = useState(null);
 
   const onChangeFileInput = async (e) => {
     const fileAdress = e.target.files;
@@ -65,9 +67,19 @@ function App() {
             content: content,
             date: currentDate,
             slug: string_to_slug(title),
+            work: checkbox,
+            projectcontent: projectContent,
           });
         setProcess(false);
       });
+  };
+
+  const handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === "checkbox" ? target.checked : target.value;
+
+    setCheckbox(value);
+    console.log(value);
   };
 
   return (
@@ -108,6 +120,29 @@ function App() {
             console.log("Focus.", editor);
           }}
         />
+        <label>
+          <input
+            name="isGoing"
+            type="checkbox"
+            checked={checkbox}
+            onChange={handleInputChange}
+            style={{ marginRight: 10 }}
+          />
+          It is Works Page ?
+        </label>
+        <br />
+        <input
+          type="text"
+          onChange={(text) => setProjectContent(text.target.value)}
+          placeholder="Project Content"
+          style={{
+            width: "100%",
+            marginTop: 10,
+            marginBottom: 10,
+            display: checkbox == true ? "block" : "none",
+          }}
+        />
+        <br />
         <button
           onClick={() => addNewBlog()}
           className="globalButton"
