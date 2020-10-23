@@ -37,7 +37,7 @@ function Home() {
       <HomeInformation />
 
       <div className="row">
-        {blogs.map((item) => (
+        {blogs.reverse().map((item) => (
           <BlogItem
             title={item.title}
             launguage={item.launguage}

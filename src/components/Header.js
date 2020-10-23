@@ -10,17 +10,19 @@ function Header() {
         <Link to="/" className="navbar-brand logoStyle">
           Samet<a style={{ color: "#f3d02e" }}>.</a>
         </Link>
-        <button
-          type="button"
-          className="navbar-toggler"
-          data-toggle="collapse"
-          data-target="#navbar-samed"
-          aria-controls="navbar-samed"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
 
-        <div className="collapse navbar-collapse" id="navbar-samed">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarsamed"
+          aria-controls="navbarsamed"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarsamed">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
               <Link to="/" className="nav-link">

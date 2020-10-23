@@ -10,4 +10,4 @@ if (dd < 10) {
 if (mm < 10) {
   mm = "0" + mm;
 }
-export default yyyy + "-" + mm + "-" + dd + " / " + hh + ":" + ss;
+export default dd + "-" + mm + "-" + yyyy;

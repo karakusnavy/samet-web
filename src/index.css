@@ -115,21 +115,24 @@ nav ul li a:hover {
 }
 
 .footer a svg {
-  font-size: 34px;
+  font-size: 23px;
   color: white;
+  margin-left: 15px;
 }
 
 /* -------- FOOTER FINISH */
 
 .globalButton {
-  padding: 12px;
+  padding: 11px;
+  padding-top: 9px;
+  padding-bottom: 9px;
   background-color: #171818;
   color: white;
   font-family: "Quicksand-VariableFont_wght";
   border-radius: 21px;
   letter-spacing: 2px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .globalButton:hover {

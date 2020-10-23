@@ -39,9 +39,7 @@ function blogItem(props) {
                   to={"/blog/" + props.slug}
                   style={{ float: "right" }}
                   className="globalButton"
-                >
-                  Read More
-                </Link>
+                >Read More</Link>
               </td>
             </tr>
           </table>

@@ -25,6 +25,10 @@ function SingleBlog() {
   const [comment, setComment] = useState(null);
 
   useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = () => {
     firebase
       .database()
       .ref("samedblog/blogs")
@@ -58,7 +62,7 @@ function SingleBlog() {
           setCommentList(newList);
         }
       });
-  }, []);
+  };
 
   const postComment = () => {
     firebase
@@ -73,6 +77,7 @@ function SingleBlog() {
       });
     setName("");
     setComment("");
+    getData();
   };
 
   return notfound == true ? (
@@ -84,7 +89,7 @@ function SingleBlog() {
           <h3 className="blogTitle">{title}</h3>
         </div>
         <div className="col-sm-3">
-          <a style={{ float: "right" }}>{date}</a>
+          <a style={{ float: "right", color: "gray" }}>{date}</a>
           <br />
         </div>
       </div>
@@ -104,18 +109,18 @@ function SingleBlog() {
       </div>
       <div className="commentContainer">
         {commentList.length <= 0 ? (
-          <a>No Comment</a>
+          <a style={{ color: "gray" }}>No Comment</a>
         ) : (
           commentList.map((item) => (
             <div
               style={{
                 backgroundColor: "#202223",
-                padding: 5,
+                padding: 15,
                 marginTop: 5,
               }}
             >
               <strong style={{ color: "white" }}>{item.name}</strong>
-              <a style={{ float: "right" }}>{item.date}</a>
+              <a style={{ float: "right", color: "gray",fontSize:13 }}>{item.date}</a>
               <p>{item.comment}</p>
             </div>
           ))
