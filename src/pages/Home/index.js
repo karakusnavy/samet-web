@@ -25,6 +25,7 @@ function Home() {
               date: data.toJSON()[key].date,
               slug: data.toJSON()[key].slug,
               image: data.toJSON()[key].image,
+              content: data.toJSON()[key].content,
             });
           }
         }
@@ -34,18 +35,18 @@ function Home() {
   return (
     <div>
       <HomeInformation />
-      <div className="container">
-        <div className="row">
-          {blogs.map((item) => (
-            <BlogItem
-              title={item.title}
-              launguage={item.launguage}
-              date={item.date}
-              slug={item.slug}
-              image={item.image}
-            />
-          ))}
-        </div>
+
+      <div className="row">
+        {blogs.map((item) => (
+          <BlogItem
+            title={item.title}
+            launguage={item.launguage}
+            date={item.date}
+            slug={item.slug}
+            image={item.image}
+            content={item.content}
+          />
+        ))}
       </div>
     </div>
   );

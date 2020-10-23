@@ -1,6 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function reString(data) {
+  var newString = data.replace(/(<([^>]+)>)/gi, "");
+  return newString.substring(0, 140) + "...";
+}
+
 function blogItem(props) {
   return (
     <div
@@ -20,17 +25,27 @@ function blogItem(props) {
       </div>
       <div className="col-sm-8" style={{ padding: 20 }}>
         <h5>{props.title}</h5>
-        <p>
-          Hollywood kalitesindeki içerikleri 10 dakikadan kısa bölümler halinde
-          sunan Quibi'nin kapanma bölümler halinde sunan Quibi'nin kapanma…
-        </p>
-        <Link
-          to={"/blog/" + props.slug}
-          style={{ float: "right" }}
-          className="globalButton"
-        >
-          Read More
-        </Link>
+        <p>{reString(props.content)}</p>
+        <div>
+          <table style={{ width: "100%" }}>
+            <tr>
+              <td>
+                <a style={{ float: "left" }}>
+                  Launguage: <strong>{props.launguage}</strong>
+                </a>
+              </td>
+              <td>
+                <Link
+                  to={"/blog/" + props.slug}
+                  style={{ float: "right" }}
+                  className="globalButton"
+                >
+                  Read More
+                </Link>
+              </td>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
   );

@@ -44,13 +44,14 @@ function Header() {
             </li>
             <li className="nav-item">
               <AiFillGithub style={{ marginTop: 9, fontSize: 21 }} />
-              <Link
-                to="/source"
+              <a
+                href="https://github.com/karakusnavy/samed-portfolio"
+                target="_newblank"
                 className="nav-link"
                 style={{ float: "right" }}
               >
                 Source
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

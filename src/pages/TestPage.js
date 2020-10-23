@@ -61,7 +61,7 @@ function App() {
           .child("samedblog/blogs")
           .push()
           .set({
-            launguage: "ENG",
+            launguage: "TR",
             title: title,
             image: ress,
             content: content,
@@ -83,7 +83,7 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ padding: 10 }}>
+    <div className="App" style={{ padding: 10, color: "white" }}>
       <center style={{ display: process == true ? "block" : "none" }}>
         <Loader type="Puff" color="rgb(70, 48, 235)" height={100} width={100} />
       </center>
@@ -103,7 +103,6 @@ function App() {
         />
         <CKEditor
           editor={ClassicEditor}
-          style={{ color: "black" }}
           data="<p>Hello from CKEditor 5!</p>"
           onInit={(editor) => {
             // You can store the "editor" and use when it is needed.

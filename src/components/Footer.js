@@ -12,41 +12,26 @@ import PersonelLinks from "../constants/personalLinks";
 function Footer() {
   return (
     <div className="footer">
-      <div className="customNav centeredFooter">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-2 footerIcons">
-              <a href={PersonelLinks.twitter} target="_newblank">
-                <AiOutlineTwitter />
-              </a>
-            </div>
-            <div className="col-sm-2 footerIcons">
-              <a href={PersonelLinks.github} target="_newblank">
-                <AiFillGithub />
-              </a>
-            </div>
-            <div className="col-sm-2 footerIcons">
-              <a href={PersonelLinks.linkedin} target="_newblank">
-                <AiFillLinkedin />
-              </a>
-            </div>
-            <div className="col-sm-2 footerIcons">
-              <a href={PersonelLinks.medium} target="_newblank">
-                <AiOutlineMedium />
-              </a>
-            </div>
-            <div className="col-sm-2 footerIcons">
-              <a href={PersonelLinks.instagram} target="_newblank">
-                <AiOutlineInstagram />
-              </a>
-            </div>
-            <div className="col-sm-2 footerIcons">
-              <a href={"mailto:" + PersonelLinks.mail} target="_newblank">
-                <AiOutlineMail />
-              </a>
-            </div>
-          </div>
-        </div>
+      <div class="footer-copyright text-center">
+        <h5>" I should probably stop writing quotes and get back to work. "</h5>
+        <a href={PersonelLinks.twitter} target="_newblank">
+          <AiOutlineTwitter />
+        </a>
+        <a href={PersonelLinks.github} target="_newblank">
+          <AiFillGithub />
+        </a>
+        <a href={PersonelLinks.linkedin} target="_newblank">
+          <AiFillLinkedin />
+        </a>
+        <a href={PersonelLinks.medium} target="_newblank">
+          <AiOutlineMedium />
+        </a>
+        <a href={PersonelLinks.instagram} target="_newblank">
+          <AiOutlineInstagram />
+        </a>
+        <a href={"mailto:" + PersonelLinks.mail} target="_newblank">
+          <AiOutlineMail />
+        </a>
       </div>
     </div>
   );

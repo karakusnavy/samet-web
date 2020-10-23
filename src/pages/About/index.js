@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div className="container" style={{ padding: 10 }}>
+    <div style={{ padding: 10 }}>
        <h2>About</h2>
       <img
         src={require("../../assets/images/samet.png")}

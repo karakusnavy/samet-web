@@ -78,7 +78,7 @@ function SingleBlog() {
   return notfound == true ? (
     <NotFound />
   ) : (
-    <div className="container blogItem">
+    <div className="blogItem">
       <div className="row" style={{ paddingTop: 15 }}>
         <div className="col-sm-9">
           <h3 className="blogTitle">{title}</h3>

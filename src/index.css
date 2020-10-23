@@ -85,9 +85,16 @@ nav ul li a:hover {
   }
 }
 
-.customNav {
+.container {
   width: 65% !important;
   margin: 0 auto;
+}
+
+@media only screen and (max-width: 404px) {
+  .customNav {
+    width: 100% !important;
+    margin: 0 auto;
+  }
 }
 
 .containerInContainer {
@@ -107,7 +114,7 @@ nav ul li a:hover {
   padding: 15px;
 }
 
-.footerIcons a svg {
+.footer a svg {
   font-size: 34px;
   color: white;
 }

@@ -3,7 +3,7 @@ import PersonelLinks from "../constants/personalLinks";
 
 function HomeInformation() {
   return (
-    <div className="container homeContainer">
+    <div className="homeContainer">
       <p style={{ color: "white" }}>
         Hi ✋, I am Samed, founder and developer of{" "}
         <a
