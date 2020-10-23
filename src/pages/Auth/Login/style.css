@@ -1,0 +1,23 @@
+input {
+  margin-top: 10px !important;
+  padding: 10px;
+  background-color: #202223;
+  color: white;
+  outline: none;
+  border: 0px;
+}
+
+button {
+  padding: 11px;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  background-color: #171818;
+  color: white;
+  font-family: "Quicksand-VariableFont_wght";
+  border-radius: 21px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}

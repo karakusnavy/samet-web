@@ -2,8 +2,8 @@ import React, { Component, useState } from "react";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import firebase from "firebase";
-import firebaseConfig from "../constants/firebase";
-import currentDate from "../constants/currentDate";
+import firebaseConfig from "../../constants/firebase";
+import currentDate from "../../constants/currentDate";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 if (!firebase.apps.length) {
