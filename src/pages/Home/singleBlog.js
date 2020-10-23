@@ -98,7 +98,7 @@ function SingleBlog() {
           backgroundSize: "cover",
         }}
       ></div>
-      {Parse(content)}
+      <div style={{ padding: 10 }}>{Parse(content)}</div>
       <div className="commentTitle">
         <a>Comments</a>
       </div>

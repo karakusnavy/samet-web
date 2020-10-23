@@ -103,6 +103,7 @@ function App() {
         />
         <CKEditor
           editor={ClassicEditor}
+          style={{ color: "black" }}
           data="<p>Hello from CKEditor 5!</p>"
           onInit={(editor) => {
             // You can store the "editor" and use when it is needed.

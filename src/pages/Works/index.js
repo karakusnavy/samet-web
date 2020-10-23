@@ -44,6 +44,15 @@ function Works() {
                     borderRadius: 10,
                   }}
                 >
+                  <div className="col-sm-4" style={{ padding: 20 }}>
+                    <img
+                      style={{
+                        width: "100%",
+                        resize: "contain",
+                      }}
+                      src={item.image}
+                    />
+                  </div>
                   <div className="col-sm-8" style={{ padding: 20 }}>
                     <h4>{item.title}</h4>
                     <p>{item.projectcontent}</p>
@@ -54,15 +63,6 @@ function Works() {
                     >
                       Read More
                     </Link>
-                  </div>
-                  <div className="col-sm-4" style={{ padding: 20 }}>
-                    <img
-                      style={{
-                        width: "100%",
-                        resize: "contain",
-                      }}
-                      src={item.image}
-                    />
                   </div>
                 </div>
               </>

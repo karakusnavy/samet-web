@@ -12,11 +12,17 @@ function blogItem(props) {
         borderRadius: 10,
       }}
     >
+      <div className="col-sm-4" style={{ padding: 20 }}>
+        <img
+          style={{ width: "100%", height: "100%", resize: "contain" }}
+          src={props.image}
+        />
+      </div>
       <div className="col-sm-8" style={{ padding: 20 }}>
-        <h4>{props.title}</h4>
+        <h5>{props.title}</h5>
         <p>
           Hollywood kalitesindeki içerikleri 10 dakikadan kısa bölümler halinde
-          sunan Quibi'nin kapanma…
+          sunan Quibi'nin kapanma bölümler halinde sunan Quibi'nin kapanma…
         </p>
         <Link
           to={"/blog/" + props.slug}
@@ -25,12 +31,6 @@ function blogItem(props) {
         >
           Read More
         </Link>
-      </div>
-      <div className="col-sm-4" style={{ padding: 20 }}>
-        <img
-          style={{ width: "100%", height: "100%", resize: "contain" }}
-          src={props.image}
-        />
       </div>
     </div>
   );
