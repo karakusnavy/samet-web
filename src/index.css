@@ -86,7 +86,7 @@ nav ul li a:hover {
 }
 
 .customNav {
-  width: 70% !important;
+  width: 65% !important;
   margin: 0 auto;
 }
 
@@ -115,15 +115,14 @@ nav ul li a:hover {
 /* -------- FOOTER FINISH */
 
 .globalButton {
-  padding: 21px;
-  padding-top: 9px;
-  padding-bottom: 9px;
+  padding: 12px;
   background-color: #171818;
   color: white;
   font-family: "FredokaOne-Regular";
   border-radius: 21px;
   letter-spacing: 2px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .globalButton:hover {

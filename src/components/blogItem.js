@@ -13,7 +13,7 @@ function blogItem(props) {
       }}
     >
       <div className="col-sm-8" style={{ padding: 20 }}>
-        <h4>Test Title</h4>
+        <h4>{props.title}</h4>
         <p>
           Hollywood kalitesindeki içerikleri 10 dakikadan kısa bölümler halinde
           sunan Quibi'nin kapanma…

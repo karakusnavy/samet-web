@@ -27,7 +27,12 @@
   margin-bottom: 10px;
 }
 
-.commentInput{
+.commentInput {
   width: 100%;
   margin-top: 10px;
+  padding: 10px;
+  background-color: #202223;
+  color: white;
+  outline: none;
+  border: 0px;
 }
