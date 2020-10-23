@@ -34,14 +34,8 @@ function Home() {
   return (
     <div>
       <HomeInformation />
-      <div
-        className="container homeContainer"
-        style={{ backgroundColor: "white" }}
-      >
+      <div className="container">
         <div className="row">
-          <div className="titleBlog">
-            <h2>Blogs</h2>
-          </div>
           {blogs.map((item) => (
             <BlogItem
               title={item.title}

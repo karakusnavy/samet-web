@@ -1,17 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
+import PersonelLinks from "../constants/personalLinks";
 
 function Header() {
   return (
     <nav className="navbar navbar-dark navbar-expand-lg bg-blog text-white">
       <div className="container py-2 customNav">
-        <img
-          src="https://avatars0.githubusercontent.com/u/29973831?s=460&u=9e4dc403b7e37f4eb1522507f3bb75486df592af&v=4"
-          className="navbar-image"
-        />
         <Link to="/" className="navbar-brand logoStyle">
-          Samed Karakus
+          Samet<a style={{ color: "#f3d02e" }}>.</a>
         </Link>
         <button
           type="button"
@@ -41,9 +38,9 @@ function Header() {
               </Link>
             </li>{" "}
             <li className="nav-item">
-              <Link to="/contact" className="nav-link">
-                Contact
-              </Link>
+              <a href={"mailto:" + PersonelLinks.mail} className="nav-link">
+                Contact Me
+              </a>
             </li>
             <li className="nav-item">
               <AiFillGithub style={{ marginTop: 9, fontSize: 21 }} />

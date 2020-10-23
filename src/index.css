@@ -1,4 +1,15 @@
 @font-face {
+  font-family: "Quicksand-VariableFont_wght";
+  src: local("Quicksand-VariableFont_wghtr"),
+    local("Quicksand-VariableFont_wght"),
+    url("./assets/fonts/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Quicksand-Bold";
+  src: local("Quicksand-Bold"), local("Quicksand-Bold"),
+    url("./assets/fonts/Quicksand-Bold.ttf") format("truetype");
+}
+@font-face {
   font-family: "FredokaOne-Regular";
   src: local("FredokaOne-Regular"), local("FredokaOne-Regular"),
     url("./assets/fonts/FredokaOne-Regular.ttf") format("truetype");
@@ -10,7 +21,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(244, 245, 243) !important;
+  background-color: rgb(17, 17, 17) !important;
 }
 
 h1,
@@ -18,7 +29,13 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "FredokaOne-Regular";
+  font-family: "Quicksand-Bold";
+  color: #f3d02e;
+}
+
+p {
+  font-family: "Quicksand-VariableFont_wght";
+  color: rgb(204, 204, 204);
 }
 
 code {
@@ -26,13 +43,17 @@ code {
     monospace;
 }
 
-.nav-item{
+hr {
+  background-color: gray;
+}
+
+.nav-item {
   margin-right: 12px;
 }
 
 /* HEADER --------- */
 .navbar-image {
-  height: 60px;
+  height: 55px;
   border-radius: 31px;
   margin-right: 10px;
   border: 3px solid white;
@@ -44,15 +65,17 @@ nav ul li a {
 }
 nav ul li a:hover {
   color: gainsboro !important;
+  text-decoration-line: underline !important;
+  text-decoration-color: #f3d02e !important;
 }
 
 .bg-blog {
-  background-color: rgb(70, 48, 235);
+  background-color: #171818;
 }
 
 .logoStyle {
   font-family: "FredokaOne-Regular";
-  font-size: 27px !important;
+  font-size: 30px !important;
 }
 
 @media only screen and (max-width: 404px) {
@@ -69,7 +92,6 @@ nav ul li a:hover {
 
 .containerInContainer {
   height: 100% !important;
-  background-color: white;
 }
 
 /* -------- HEADER FINISH */
@@ -80,7 +102,7 @@ nav ul li a:hover {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: rgb(70, 48, 235);
+  background-color: #171818;
   color: white;
   padding: 15px;
 }
@@ -96,7 +118,7 @@ nav ul li a:hover {
   padding: 21px;
   padding-top: 9px;
   padding-bottom: 9px;
-  background-color: rgb(70, 48, 235);
+  background-color: #171818;
   color: white;
   font-family: "FredokaOne-Regular";
   border-radius: 21px;

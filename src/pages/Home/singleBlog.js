@@ -38,7 +38,9 @@ function SingleBlog() {
           var object = snapshot.val();
           var commentLists = [];
           for (const prop in object) {
-            setContent(object[prop].content == null ? "" : object[prop].content);
+            setContent(
+              object[prop].content == null ? "" : object[prop].content
+            );
             setDate(object[prop].date);
             setImage(object[prop].image);
             setTitle(object[prop].title);
@@ -107,19 +109,19 @@ function SingleBlog() {
           commentList.map((item) => (
             <div
               style={{
-                backgroundColor: "whitesmoke",
+                backgroundColor: "#202223",
                 padding: 5,
                 marginTop: 5,
               }}
             >
-              <strong>{item.name}</strong>
+              <strong style={{ color: "white" }}>{item.name}</strong>
               <a style={{ float: "right" }}>{item.date}</a>
               <p>{item.comment}</p>
             </div>
           ))
         )}
         <hr />
-        Leave a Comment
+        <a style={{ color: "white" }}>Leave a Comment</a>
         <input
           value={name}
           onChange={(text) => setName(text.target.value)}

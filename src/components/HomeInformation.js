@@ -4,10 +4,7 @@ import PersonelLinks from "../constants/personalLinks";
 function HomeInformation() {
   return (
     <div className="container homeContainer">
-      <div className="row">
-        <h5>Welcome.</h5>
-      </div>
-      <p>
+      <p style={{ color: "white" }}>
         Hi ✋, I am Samed, founder and developer of{" "}
         <a
           href="https://instagram.com/thebotanicca"

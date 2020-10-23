@@ -11,7 +11,7 @@
 }
 .commentTitle {
   width: 100%;
-  background-color: rgb(70, 48, 235);
+  background-color: #f3d02e;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 5px;
@@ -20,7 +20,7 @@
 
 .commentTitle a {
   font-weight: 600;
-  color: white !important;
+  color: black !important;
 }
 
 .commentContainer {
