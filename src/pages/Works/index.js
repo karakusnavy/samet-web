@@ -20,6 +20,7 @@ function Works() {
               title: data.toJSON()[key].title,
               slug: data.toJSON()[key].slug,
               projectcontent: data.toJSON()[key].projectcontent,
+              image: data.toJSON()[key].image,
             });
           }
         }
@@ -34,23 +35,36 @@ function Works() {
           <table>
             {works.map((item) => (
               <>
-                <Link
-                  to={"/blog/" + item.slug}
-                  style={{ float: "right" }}
-                  className="globalButton"
+                <div
+                  className="row"
+                  style={{
+                    backgroundColor: "#202223",
+                    color: "white",
+                    marginBottom: 10,
+                    borderRadius: 10,
+                  }}
                 >
-                  <tr>
-                    <td>
-                      <h5>{item.title}</h5>
-                      <a>{item.projectcontent}</a>
-                    </td>
-                  </tr>
-                </Link>
-                <tr>
-                  <td>
-                    <hr />
-                  </td>
-                </tr>
+                  <div className="col-sm-8" style={{ padding: 20 }}>
+                    <h4>{item.title}</h4>
+                    <p>{item.projectcontent}</p>
+                    <Link
+                      to={"/blog/" + item.slug}
+                      style={{ float: "right" }}
+                      className="globalButton"
+                    >
+                      Read More
+                    </Link>
+                  </div>
+                  <div className="col-sm-4" style={{ padding: 20 }}>
+                    <img
+                      style={{
+                        width: "100%",
+                        resize: "contain",
+                      }}
+                      src={item.image}
+                    />
+                  </div>
+                </div>
               </>
             ))}
           </table>
