@@ -4,6 +4,7 @@
    <a aria-label="made with react" href="https://github.com/react">
     Made With React
   </a>
+   <br />
   <a href="/LICENSE">
     <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" target="_blank" />
   </a>
