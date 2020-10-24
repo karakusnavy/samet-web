@@ -2,43 +2,15 @@ import React, { useState, useEffect } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import PersonelLinks from "../constants/personalLinks";
-import firebase from "firebase";
-import firebaseConfig from "../constants/firebase";
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+import { auth } from "../api/firebaseFuncts";
 
 function Header() {
-  const history = useHistory();
   const [logged, setLogged] = useState(false);
-  useEffect(() => {
-    authControl();
+  useEffect(async () => {
+    await auth().then((response) => {
+      setLogged(response);
+    });
   }, []);
-  const authControl = () => {
-    const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
-    firebase
-      .database()
-      .ref("samedblog/users")
-      .orderByChild("username")
-      .equalTo(username)
-      .once("value", function (snapshot) {
-        if (!snapshot.exists()) {
-          setLogged(false);
-          return;
-        } else {
-          // set
-          var object = snapshot.val();
-          for (const prop in object) {
-            if (object[prop].password == password) {
-              setLogged(true);
-            } else {
-              setLogged(false);
-            }
-          }
-        }
-      });
-  };
 
   const logout = () => {
     localStorage.removeItem("username");

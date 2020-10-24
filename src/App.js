@@ -19,46 +19,23 @@ import Works from "./pages/Works";
 import Login from "./pages/Auth/Login";
 import NewBlog from "./pages/Home/newBlog";
 
-import firebase from "firebase";
-import firebaseConfig from "./constants/firebase";
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+import { auth } from "./api/firebaseFuncts";
+
 export default function App() {
   const [logged, setLogged] = useState(false);
-  useEffect(() => {
-    authControl();
+  useEffect( async () => {
+    await authControl();
   }, []);
-  const authControl = () => {
-    const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
-    firebase
-      .database()
-      .ref("samedblog/users")
-      .orderByChild("username")
-      .equalTo(username)
-      .once("value", function (snapshot) {
-        if (!snapshot.exists()) {
-          setLogged(false);
-          return;
-        } else {
-          // set
-          var object = snapshot.val();
-          for (const prop in object) {
-            if (object[prop].password == password) {
-              setLogged(true);
-            } else {
-              setLogged(false);
-            }
-          }
-        }
-      });
+  const authControl = async () => {
+    await auth().then((response) => {
+      setLogged(response);
+    });
   };
   const PrivateRoute = ({ isLoggedIn, ...props }) =>
     isLoggedIn ? <Route {...props} /> : <Redirect to="/login" />;
   return (
     <Router>
-      <Header />
+      <Header logged={logged} />
       <div className="container containerInContainer customNav">
         <Switch>
           <Route path="/about">

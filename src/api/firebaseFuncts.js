@@ -70,3 +70,28 @@ export const setNewComment = async (blogid, name, comment) => {
       date: currentDate,
     });
 };
+
+export const auth = async () => {
+  const username = localStorage.getItem("username");
+  const password = localStorage.getItem("password");
+  var state = false;
+  await firebase
+    .database()
+    .ref("samedblog/users")
+    .orderByChild("username")
+    .equalTo(username)
+    .once("value", function (snapshot) {
+      if (!snapshot.exists()) {
+        return;
+      } else {
+        // set
+        var object = snapshot.val();
+        for (const prop in object) {
+          if (object[prop].password == password) {
+            state = true;
+          }
+        }
+      }
+    });
+  return state;
+};
