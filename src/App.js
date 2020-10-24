@@ -23,7 +23,7 @@ import { auth } from "./api/firebaseFuncts";
 
 export default function App() {
   const [logged, setLogged] = useState(false);
-  useEffect( async () => {
+  useEffect(async () => {
     await authControl();
   }, []);
   const authControl = async () => {
@@ -35,7 +35,7 @@ export default function App() {
     isLoggedIn ? <Route {...props} /> : <Redirect to="/login" />;
   return (
     <Router>
-      <Header logged={logged} />
+      <Header />
       <div className="container containerInContainer customNav">
         <Switch>
           <Route path="/about">

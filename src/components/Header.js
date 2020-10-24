@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import PersonelLinks from "../constants/personalLinks";
 import { auth } from "../api/firebaseFuncts";
 
 function Header() {
   const [logged, setLogged] = useState(false);
+
   useEffect(async () => {
     await auth().then((response) => {
       setLogged(response);

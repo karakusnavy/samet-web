@@ -19,13 +19,10 @@ function blogItem(props) {
     >
       <div className="col-sm-4" style={{ padding: 20 }}>
         <Link to={"/blog/" + props.slug}>
-          <img
-            style={{ width: "100%", height: "100%", resize: "contain" }}
-            src={props.image}
-          />
+          <img style={{ width: "100%", resize: "contain" }} src={props.image} />
         </Link>
       </div>
-      <div className="col-sm-8" style={{ padding: 20 }}>
+      <div className="col-sm-8" style={{ padding: 20, paddingLeft: 0 }}>
         <Link to={"/blog/" + props.slug}>
           <h5>{props.title}</h5>
         </Link>
