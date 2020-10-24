@@ -18,13 +18,17 @@ function blogItem(props) {
       }}
     >
       <div className="col-sm-4" style={{ padding: 20 }}>
-        <img
-          style={{ width: "100%", height: "100%", resize: "contain" }}
-          src={props.image}
-        />
+        <Link to={"/blog/" + props.slug}>
+          <img
+            style={{ width: "100%", height: "100%", resize: "contain" }}
+            src={props.image}
+          />
+        </Link>
       </div>
       <div className="col-sm-8" style={{ padding: 20 }}>
-        <h5>{props.title}</h5>
+        <Link to={"/blog/" + props.slug}>
+          <h5>{props.title}</h5>
+        </Link>
         <p>{reString(props.content)}</p>
         <div>
           <table style={{ width: "100%" }}>
@@ -39,7 +43,9 @@ function blogItem(props) {
                   to={"/blog/" + props.slug}
                   style={{ float: "right" }}
                   className="globalButton"
-                >Read More</Link>
+                >
+                  Read More
+                </Link>
               </td>
             </tr>
           </table>
