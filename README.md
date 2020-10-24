@@ -1,8 +1,8 @@
 <h1 align="center">Welcome to My Web Site Portfolio 👋</h1>
 
 <p align="center">
-   <a aria-label="made with react" href="https://github.com/react">
-    Made With React
+   <a aria-label="made with react" href="https://github.com/reactjs">
+    Made With React JS
   </a>
    <br />
   <a href="/LICENSE">
