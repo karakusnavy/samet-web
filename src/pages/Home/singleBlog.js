@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Parse from "html-react-parser";
-import firebase from "firebase";
-import firebaseConfig from "../../constants/firebase";
 import NotFound from "../404";
-import currentDate from "../../constants/currentDate";
 import "./style.css";
 
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
+import { getSingleBlog, setNewComment } from "../../api/firebaseFuncts";
 
 function SingleBlog() {
   let { slug } = useParams();
@@ -29,52 +24,30 @@ function SingleBlog() {
   }, []);
 
   const getData = () => {
-    firebase
-      .database()
-      .ref("samedblog/blogs")
-      .orderByChild("slug")
-      .equalTo(slug)
-      .once("value", function (snapshot) {
-        if (!snapshot.exists()) {
-          setNotFound(true);
-          return;
-        } else {
-          var object = snapshot.val();
-          var commentLists = [];
-          for (const prop in object) {
-            setContent(
-              object[prop].content == null ? "" : object[prop].content
-            );
-            setDate(object[prop].date);
-            setImage(object[prop].image);
-            setTitle(object[prop].title);
-            setBlogId(prop);
-            commentLists = object[prop].comments;
-          }
-          const newList = [];
-          for (const prop in commentLists) {
-            newList.push({
-              date: commentLists[prop].date,
-              comment: commentLists[prop].comment,
-              name: commentLists[prop].name,
-            });
-          }
-          setCommentList(newList);
-        }
-      });
+    getSingleBlog(slug).then((data) => {
+      const blogData = data[0];
+      if (blogData.content == undefined) {
+        return setNotFound(true);
+      }
+      setContent(blogData.content);
+      setDate(blogData.date);
+      setImage(blogData.image);
+      setTitle(blogData.title);
+      setBlogId(blogData.blogid);
+      const newList = [];
+      for (const prop in blogData.commentLists) {
+        newList.push({
+          date: blogData.commentLists[prop].date,
+          comment: blogData.commentLists[prop].comment,
+          name: blogData.commentLists[prop].name,
+        });
+      }
+      setCommentList(newList);
+    });
   };
 
   const postComment = () => {
-    firebase
-      .database()
-      .ref()
-      .child("samedblog/blogs/" + blogid + "/comments")
-      .push()
-      .set({
-        name: name,
-        comment: comment,
-        date: currentDate,
-      });
+    setNewComment(blogid, name, comment);
     setName("");
     setComment("");
     getData();
@@ -120,7 +93,9 @@ function SingleBlog() {
               }}
             >
               <strong style={{ color: "white" }}>{item.name}</strong>
-              <a style={{ float: "right", color: "gray",fontSize:13 }}>{item.date}</a>
+              <a style={{ float: "right", color: "gray", fontSize: 13 }}>
+                {item.date}
+              </a>
               <p>{item.comment}</p>
             </div>
           ))
