@@ -5,7 +5,7 @@ function HomeInformation() {
   return (
     <div className="homeContainer">
       <p style={{ color: "white" }}>
-        Hi ✋, I am Samed, founder and developer of{" "}
+        Hi ✋, I Samed, founder and developer of{" "}
         <a
           href="https://instagram.com/thebotanicca"
           target="_newblank"
