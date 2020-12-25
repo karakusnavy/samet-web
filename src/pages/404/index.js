@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <div>
       <h1>
-        Geri Bas Lan, Geri Bas ! Böyle bir sayfa falan yok nereye gidiyon ?
+        404 Not Found :)
       </h1>
     </div>
   );
